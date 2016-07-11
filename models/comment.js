@@ -8,6 +8,10 @@ const commentSchema = new Schema({
   author: {
     type: String,
     ref: "user"
+  },
+  cratedAt: {
+    type: Date,
+    default: Date.now
   }
 })
 

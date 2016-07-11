@@ -1,10 +1,20 @@
 // ArticleSchema
 const articleSchema = new Schema({
-  title: String,
-  content: String,
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
   author: String: {
     type: String,
-    ref: "User"
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 })
 
