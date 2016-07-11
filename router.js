@@ -1,4 +1,6 @@
-const Authentication = require('./controllers/Authentication');
+const authentication = require('./controllers/Authentication');
+const article = require('./controller/article');
+
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -7,8 +9,19 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = function(app) {
   app.get('/', requireAuth, function(req, res) {
-    res.send({ message: 'super secret code is ABC123'});
+    res.json({
+      'message': 'wow'
+    });
   })
-  app.post('/signin', requireSignin, Authentication.signin);
-  app.post('/signup', Authentication.signup);
+  app.post('/signin', requireSignin, authentication.signin);
+  app.post('/signup', authentication.signup);
+
+  //REST API ROUTES FOR ARTICLES
+  app.all('/api', requireAuth);
+  app.post('/api/articles', article.createArticle);
+  app.get('/api/articles', article.getArticles);
+  app.get('/api/articles/:id', article.getArticle);
+  app.put('/api/articles/:id', article.updateArticle);
+  app.del('/api/articles/:id', article.deleteArticle);
+
 }
