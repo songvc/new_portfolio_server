@@ -1,5 +1,5 @@
 // CommentSchema
-const CommentSchema = new Schema({
+const commentSchema = new Schema({
   text: String,
   article: {
     type: String,
@@ -10,3 +10,6 @@ const CommentSchema = new Schema({
     ref: "user"
   }
 })
+
+const commentModel = mongoose.model('user', commentSchema);
+module.exports = commentModel;

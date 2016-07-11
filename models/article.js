@@ -7,3 +7,6 @@ const articleSchema = new Schema({
     ref: "User"
   }
 })
+
+const ModelClass = mongoose.model('user', articleSchema);
+module.exports = articleModel;
