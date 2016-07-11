@@ -31,6 +31,7 @@ exports.getArticles = function (req, res) {
 }
 
 exports.getArticle = function (req, res) {
+  console.log(req.body);
 
 }
 

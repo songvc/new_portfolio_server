@@ -6,6 +6,7 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const methodOverride = require('method-override');
 
 // DB Setup
 mongoose.connect('mongodb://localhost:auth/auth')
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://localhost:auth/auth')
 app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json( {type: '*/*' }));
+app.use(methodOverride());
 router(app);
 
 // Server Setup
