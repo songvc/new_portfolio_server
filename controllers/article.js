@@ -29,7 +29,12 @@ exports.deleteArticle = function (req, res) {
 exports.getArticles = function (req, res) {
   console.log(req.body);
   const { limit = 50, skip = 0 } = req.query;
-  Article.
+  Article.find({}, funciton (err, articles) {
+    if (err) {
+      return console.log(err);
+    }
+    res.fo
+  })
 }
 
 exports.getArticle = function (req, res) {

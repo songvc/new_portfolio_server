@@ -1,4 +1,7 @@
-// ArticleSchema
+/**
+ * Article Schema
+ */
+
 const articleSchema = new Schema({
   title: {
     type: String,
@@ -21,6 +24,14 @@ const articleSchema = new Schema({
     default: Date.now
   }
 })
+
+/**
+ * Validations
+ */
+
+articleSchema.path('title').required(true, 'Article title cannot be blank');
+articleSchema.path('body').required(true, 'Article body cannot be blank');
+
 
 const ModelClass = mongoose.model('user', articleSchema);
 module.exports = articleModel;
