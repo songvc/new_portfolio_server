@@ -1,3 +1,5 @@
+import mongoose, { Schema } from 'mongoose';
+
 /**
  * Article Schema
  */
@@ -10,12 +12,12 @@ const articleSchema = new Schema({
   tags: {
     type: [String],
     index: true
-  }
+  },
   content: {
     type: String,
     required: true
   },
-  author: String: {
+  author: {
     type: String,
     required: true
   },
@@ -29,9 +31,8 @@ const articleSchema = new Schema({
  * Validations
  */
 
-articleSchema.path('title').required(true, 'Article title cannot be blank');
-articleSchema.path('body').required(true, 'Article body cannot be blank');
+// articleSchema.path('title').required(true, 'Article title cannot be blank');
+// articleSchema.path('body').required(true, 'Article body cannot be blank');
 
 
-const articleClass = mongoose.model('user', articleSchema);
-export default articleClass;
+export default mongoose.model('Article', articleSchema);

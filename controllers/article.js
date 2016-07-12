@@ -29,7 +29,7 @@ function deleteArticle(req, res) {
 function getArticles(req, res) {
   console.log(req.body);
   const { limit = 50, skip = 0 } = req.query;
-  Article.find({}, funciton (err, articles) {
+  Article.find({}, function (err, articles) {
     if (err) {
       return console.log(err);
     }
@@ -47,7 +47,6 @@ function updateArticle (req, res) {
   const { id } = req.body.params;
   // update an existing article
   Article.findById(id, function(err, article) {
-    const user =
     const { title, tags ,text } = req.body;
 
     article.save(function(err) {
@@ -61,4 +60,4 @@ function updateArticle (req, res) {
 
 }
 
-export deafult { createArticle, deleteArticle, getArticles, getArticle, updateArticle };
+export default { createArticle, deleteArticle, getArticles, getArticle, updateArticle };
