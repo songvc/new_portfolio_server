@@ -13,7 +13,7 @@ exports.createArticle = function(req, res) {
     text
   });
 
-  article.save(function (err) {
+  article.save(function(err) {
     if (!err) {
       return console.log('article created');
     } else {
@@ -27,7 +27,9 @@ exports.deleteArticle = function (req, res) {
 }
 
 exports.getArticles = function (req, res) {
-
+  console.log(req.body);
+  const { limit = 50, skip = 0 } = req.query;
+  Article.
 }
 
 exports.getArticle = function (req, res) {
@@ -40,8 +42,16 @@ exports.updateArticle = function (req, res) {
   const { id } = req.body.params;
   // update an existing article
   Article.findById(id, function(err, article) {
+    const user =
     const { title, tags ,text } = req.body;
 
+    article.save(function(err) {
+      if (!err) {
+        return console.log('article updated');
+      } else {
+        return console.log(err);
+      }
+    })
   })
 
 }

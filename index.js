@@ -7,6 +7,7 @@ const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const methodOverride = require('method-override');
+const Promise = require('bluebird');
 
 // DB Setup
 mongoose.connect('mongodb://localhost:auth/auth')
