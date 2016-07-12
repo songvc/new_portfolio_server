@@ -33,5 +33,5 @@ articleSchema.path('title').required(true, 'Article title cannot be blank');
 articleSchema.path('body').required(true, 'Article body cannot be blank');
 
 
-const ModelClass = mongoose.model('user', articleSchema);
-module.exports = articleModel;
+const articleClass = mongoose.model('user', articleSchema);
+export default articleClass;

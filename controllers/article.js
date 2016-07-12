@@ -1,8 +1,8 @@
-const User = require('../models/user');
-const Article = require('../models/article');
-const config = require('../config');
+import User from '../models/user';
+import Article from '../models/article';
+import config from '../config';
 
-exports.createArticle = function(req, res) {
+function createArticle(req, res) {
   console.log(req.body);
   const { title, tags ,text } = req.body;
 
@@ -13,7 +13,7 @@ exports.createArticle = function(req, res) {
     text
   });
 
-  article.save(function(err) {
+  article.save(function (err) {
     if (!err) {
       return console.log('article created');
     } else {
@@ -22,11 +22,11 @@ exports.createArticle = function(req, res) {
   });
 }
 
-exports.deleteArticle = function (req, res) {
+function deleteArticle(req, res) {
 
 }
 
-exports.getArticles = function (req, res) {
+function getArticles(req, res) {
   console.log(req.body);
   const { limit = 50, skip = 0 } = req.query;
   Article.find({}, funciton (err, articles) {
@@ -37,12 +37,12 @@ exports.getArticles = function (req, res) {
   })
 }
 
-exports.getArticle = function (req, res) {
+function getArticle (req, res) {
   console.log(req.body);
 
 }
 
-exports.updateArticle = function (req, res) {
+function updateArticle (req, res) {
   console.log(req.body);
   const { id } = req.body.params;
   // update an existing article
@@ -60,3 +60,5 @@ exports.updateArticle = function (req, res) {
   })
 
 }
+
+export deafult { createArticle, deleteArticle, getArticles, getArticle, updateArticle };

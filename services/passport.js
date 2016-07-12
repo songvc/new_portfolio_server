@@ -1,9 +1,8 @@
-const passport = require('passport');
-const User = require('../models/user');
-const config = require('../config');
-const JwtStrategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
-const LocalStrategy = require('passport-local');
+import passport from 'passport';
+import User from '../models/user';
+import config from '../config';
+import { JwtStrategy, ExtractJwt } from 'passport-jwt';
+import LocalStrategy from 'passport-local';
 
 // the whole strategy
 // signing up -> verify email is not in use -> token

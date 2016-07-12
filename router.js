@@ -1,13 +1,13 @@
-const authentication = require('./controllers/Authentication');
-const article = require('./controller/article');
+import authentication from './controllers/Authentication';
+import article from './controllers/article';
 
-const passportService = require('./services/passport');
-const passport = require('passport');
+import passportService from './services/passport';
+import passport from 'passport';
 
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
-module.exports = function(app) {
+function routes(app) {
   app.get('/', requireAuth, function(req, res) {
     res.json({
       'message': 'wow'
@@ -25,3 +25,5 @@ module.exports = function(app) {
   app.del('/api/articles/:id', article.deleteArticle);
 
 }
+
+export default routes;
