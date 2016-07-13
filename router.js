@@ -7,7 +7,7 @@ import passport from 'passport';
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
-function routes(app) {
+const routes = (app) => {
   app.get('/', requireAuth, function(req, res) {
     res.json({
       'message': 'wow'

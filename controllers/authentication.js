@@ -2,18 +2,18 @@ import jwt from 'jwt-simple';
 import User from '../models/user';
 import config from '../config';
 
-function tokenForUser(user) {
+const tokenForUser = (user) => {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
-function signin(req, res, next) {
+const signin = (req, res, next) => {
   //User has already had their email and password auth'd
   // We just need to give them a token
   res.send({ token: tokenForUser(req.user) });
 }
 
-function signup(req, res, next) {
+const signup = (req, res, next) => {
   console.log(req.body);
   const { email, password } = req.body;
 

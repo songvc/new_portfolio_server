@@ -2,7 +2,7 @@ import User from '../models/user';
 import Article from '../models/article';
 import config from '../config';
 
-function createArticle(req, res) {
+const createArticle = (req, res) => {
   console.log(req.body);
   const { title, tags ,text } = req.body;
 
@@ -22,11 +22,11 @@ function createArticle(req, res) {
   });
 }
 
-function deleteArticle(req, res) {
+const deleteArticle = (req, res) => {
 
 }
 
-function getArticles(req, res) {
+const getArticles = (req, res) => {
   console.log(req.body);
   const { limit = 50, skip = 0 } = req.query;
   Article.find({}, function (err, articles) {
@@ -37,12 +37,12 @@ function getArticles(req, res) {
   })
 }
 
-function getArticle (req, res) {
+const getArticle = (req, res) => {
   console.log(req.body);
 
 }
 
-function updateArticle (req, res) {
+const updateArticle = (req, res) => {
   console.log(req.body);
   const { id } = req.body.params;
   // update an existing article
