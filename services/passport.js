@@ -1,8 +1,10 @@
 import passport from 'passport';
 import User from '../models/user';
 import config from '../config';
-import { JwtStrategy, ExtractJwt } from 'passport-jwt';
+import { Strategy, ExtractJwt } from 'passport-jwt';
 import LocalStrategy from 'passport-local';
+
+const JwtStrategy = Strategy;
 
 // the whole strategy
 // signing up -> verify email is not in use -> token
@@ -20,7 +22,7 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
     if (!user) { return done(null,  false);}
 
     //compare password - is 'password' equal to user.password?
-    user.comparePassword(password, function(err, isMatch){
+    User.comparePassword(password, function(err, isMatch){
       if (err) { return done(err); }
       if (!isMatch) { return done(null, false); }
       return done(null, user);
