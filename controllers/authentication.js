@@ -1,6 +1,6 @@
 import jwt from 'jwt-simple';
 import User from '../models/user';
-import { secret } from '../config';
+import secret from '../config';
 
 const tokenForUser = (user) => {
   const timestamp = new Date().getTime();

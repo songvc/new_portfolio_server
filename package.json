@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon lib/index.js --exec babel-node",
-    "build": "babel-node --presets es2015 rollup-build.js",
-    "serve": "node dist/index.js",
+    "build": "rollup -c",
+    "serve": "node dist/rollup-build.js",
     "test": "mocha --compilers js:babel-register"
   },
   "author": "",
