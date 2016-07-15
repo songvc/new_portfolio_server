@@ -4,30 +4,22 @@ import config from '../config';
 
 const createArticle = (req, res, next) => {
   console.log(req.body);
-  const { title, tags ,text } = req.body;
+  const { title, tags ,content } = req.body;
 
   //create an article
-  const savedArticle = new Article({
+  const article = new Article({
     title,
     tags,
-    text
+    content
   });
 
   article.saveAsync()
     .then(savedArticle => res.json(savedArticle))
     .error(e => next(e));
-  // (function (err) {
-  //   if (!err) {
-  //     return console.log('article created');
-  //   } else {
-  //     return console.log(err);
-  //   }
-  // });
 }
 
 const deleteArticle = (req, res, next) => {
   console.log(req.body);
-  // const { id }
 }
 
 const getArticles = (req, res, next) => {

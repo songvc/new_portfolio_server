@@ -22,7 +22,7 @@ const routes = (app) => {
   app.get('/api/articles', article.getArticles);
   app.get('/api/articles/:id', article.getArticle);
   app.put('/api/articles/:id', article.updateArticle);
-  app.del('/api/articles/:id', article.deleteArticle);
+  app.delete('/api/articles/:id', article.deleteArticle);
 
 }
 
