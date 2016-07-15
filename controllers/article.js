@@ -19,14 +19,15 @@ const createArticle = (req, res, next) => {
 }
 
 const deleteArticle = (req, res, next) => {
-  const user = req.user;
   console.log(req.body);
+
 }
 
 const getArticles = (req, res, next) => {
   console.log(req.body);
+  // allow pagination with limit and skip queries
   const { limit = 50, skip = 0 } = req.query;
-  Article.findAsync()
+  Article.list({ limit, skip })
     .then(function(articles) {
       res.json(articles);
     })
@@ -34,31 +35,23 @@ const getArticles = (req, res, next) => {
     .error(console.error);
 }
 
-const getArticle = (req, res, next) => {
+const getArticle = (req, res, next, id) => {
   console.log(req.body);
-
+  Article.get(id)
+    .then((article) => {
+      res.json(article);
+    })
+    .error(console.error);
 }
 
 const updateArticle = (req, res, next) => {
-  // console.log(req.body);
-  // const { id } = req.body.params;
-  // // update an existing article
-  // Article.findByIdAsync()
-  //   .then
-  //
-  //
-  //
-  // (id, function(err, article) {
-  //   const { title, tags ,text } = req.body;
-  //
-  //   article.save(function(err) {
-  //     if (!err) {
-  //       return console.log('article updated');
-  //     } else {
-  //       return console.log(err);
-  //     }
-  //   })
-  // })
+  console.log(req.body);
+  const article = req.article;
+  const { title, tags ,content } = req.body;
+
+  article.saveAsync()
+    .then((article) => res.json(article))
+    .error(console.error);
 
 }
 
