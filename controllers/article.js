@@ -19,6 +19,7 @@ const createArticle = (req, res, next) => {
 }
 
 const deleteArticle = (req, res, next) => {
+  const user = req.user;
   console.log(req.body);
 }
 

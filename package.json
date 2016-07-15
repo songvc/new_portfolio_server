@@ -18,6 +18,7 @@
     "compress": "^0.99.0",
     "cors": "^2.7.1",
     "express": "^4.14.0",
+    "http-status": "^0.2.3",
     "jwt-simple": "^0.5.0",
     "method-override": "^2.3.6",
     "mongoose": "^4.5.3",
