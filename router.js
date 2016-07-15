@@ -17,7 +17,7 @@ const routes = (app) => {
   app.post('/signup', authentication.signup);
 
   //REST API ROUTES FOR ARTICLES
-  app.all('/api', requireAuth);
+  app.all('/api/*', requireAuth);
   app.post('/api/articles', article.createArticle);
   app.get('/api/articles', article.getArticles);
   app.get('/api/articles/:id', article.getArticle);
