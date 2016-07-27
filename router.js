@@ -1,5 +1,7 @@
 import authentication from './controllers/Authentication';
 import article from './controllers/article';
+import lab from './controller/lab';
+import portfolio from './controller/portfolio';
 import httpStatus from 'http-status';
 
 import passportService from './services/passport';
@@ -26,6 +28,19 @@ const routes = (app) => {
   app.get('/api/articles/:id', article.getArticle);
   app.put('/api/articles/:id', article.updateArticle);
   app.delete('/api/articles/:id', article.deleteArticle);
+
+  app.post('/api/labs', lab.createLab);
+  app.get('/api/labs', lab.getLabs);
+  app.get('/api/labs/:id', lab.getLab);
+  app.put('/api/labs/:id', lab.updateLab);
+  app.delete('/api/labs/:id', lab.deleteLab);
+  
+  app.post('/api/portfolios', portfolio.createPortfolio);
+  app.get('/api/portfolios', portfolio.getPortfolios);
+  app.get('/api/portfolios/:id', portfolio.getPortfolio);
+  app.put('/api/portfolios/:id', portfolio.updatePortfolio);
+  app.delete('/api/portfolios/:id', portfolio.deletePortfolio);
+
 
 }
 
