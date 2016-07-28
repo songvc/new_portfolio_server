@@ -5,10 +5,6 @@ const labSchema = new Schema({
     type: String,
     required: true
   },
-  tags: {
-    type: [String],
-    index: true
-  },
   content: {
     type: String,
     required: true

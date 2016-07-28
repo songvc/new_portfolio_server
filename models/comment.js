@@ -4,12 +4,10 @@ import mongoose, { Schema } from 'mongoose';
 const commentSchema = new Schema({
   text: String,
   article: {
-    type: String,
-    ref: "Article"
+    type: String
   },
   author: {
-    type: String,
-    ref: "user"
+    type: String
   },
   cratedAt: {
     type: Date,

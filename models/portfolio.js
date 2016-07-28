@@ -7,9 +7,11 @@ const portfolioSchema = new Schema({
     type: String,
     ref: "Article"
   },
+  image: {
+    type: String
+  },
   author: {
-    type: String,
-    ref: "user"
+    type: String
   },
   cratedAt: {
     type: Date,
