@@ -2,7 +2,7 @@ import User from '../models/user';
 import Portfolio from '../models/portfolio';
 
 const createPortfolio = (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   // const { title, tags ,content } = req.body;
 
   //create an article
@@ -13,7 +13,7 @@ const createPortfolio = (req, res, next) => {
   });
 
   portfolio.saveAsync()
-    .then(savedArticle => res.json(savedArticle))
+    .then(savedPortfolio => res.json(savedPortfolio))
     .error(e => next(e));
 }
 
@@ -27,8 +27,8 @@ const getPortfolios = (req, res, next) => {
   // allow pagination with limit and skip queries
   const { limit = 50, skip = 0 } = req.query;
   Portfolio.list({ limit, skip })
-    .then(function(articles) {
-      res.json(articles);
+    .then(function(portfolios) {
+      res.json(portfolios);
     })
     .catch(next)
     .error(console.error);
@@ -37,8 +37,8 @@ const getPortfolios = (req, res, next) => {
 const getPortfolio = (req, res, next, id) => {
   console.log(req.body);
   Portfolio.get(id)
-    .then((article) => {
-      res.json(article);
+    .then((portfolio) => {
+      res.json(portfolio);
     })
     .error(console.error);
 }
@@ -49,7 +49,7 @@ const updatePortfolio = (req, res, next) => {
   const { title, tags ,content } = req.body;
 
   portfolio.saveAsync()
-    .then((article) => res.json(article))
+    .then((portfolio) => res.json(portfolio))
     .error(console.error);
 
 }

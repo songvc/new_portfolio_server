@@ -12,13 +12,12 @@ const createLab = (req, res, next) => {
     content
   });
 
-  portfolio.saveAsync()
-    .then(savedArticle => res.json(savedArticle))
+  lab.saveAsync()
+    .then(savedLab => res.json(savedLab))
     .error(e => next(e));
 }
 
 const deleteLab = (req, res, next) => {
-  console.log(req.body);
 
 }
 
@@ -27,8 +26,8 @@ const getLabs = (req, res, next) => {
   // allow pagination with limit and skip queries
   const { limit = 50, skip = 0 } = req.query;
   Lab.list({ limit, skip })
-    .then(function(articles) {
-      res.json(articles);
+    .then(function(labs) {
+      res.json(labs);
     })
     .catch(next)
     .error(console.error);
@@ -49,7 +48,7 @@ const updateLab = (req, res, next) => {
   const { title, tags ,content } = req.body;
 
   lab.saveAsync()
-    .then((article) => res.json(lab))
+    .then((lab) => res.json(lab))
     .error(console.error);
 
 }
