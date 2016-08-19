@@ -11,3 +11,21 @@ describe('Example Node Server', () => {
     });
   });
 });
+
+describe('Example Node Server', () => {
+  it('should return 300', done => {
+    http.get('http://localhost:3090', res => {
+      assert.equal(300, res.statusCode);
+      done();
+    });
+  });
+});
+
+describe('Example Node Server', () => {
+  it('should return 400', done => {
+    http.get('http://localhost:3090', res => {
+      assert.equal(400, res.statusCode);
+      done();
+    });
+  });
+});
